@@ -12,7 +12,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/tractors")
 @AllArgsConstructor
-public class TractorController {
+public class MotionController {
 
     private final MotionService motionService;
 

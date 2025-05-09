@@ -10,9 +10,13 @@ import java.util.List;
 
 public class CommandMapper {
 
+    public static final String PARENTHESIS_REGEX = "[()]";
+    public static final String COMMA_REGEX = ",";
+    public static final String WHITE_SPACES_REGEX = "\\s+";
+
     public static Tractor mapToTractor(String input) {
-        String[] initialPosition = Arrays.stream(input.replaceAll("[()]", "")
-                        .split(","))
+        String[] initialPosition = Arrays.stream(input.replaceAll(PARENTHESIS_REGEX, "")
+                        .split(COMMA_REGEX))
                 .map(String::trim)
                 .toArray(String[]::new);
 
@@ -29,7 +33,7 @@ public class CommandMapper {
 
     public static Command mapToCommand(String input) {
         List<String> commandList = Arrays.stream(input.trim()
-                .replaceAll("\\s+", "")
+                .replaceAll(WHITE_SPACES_REGEX, "")
                 .toUpperCase()
                 .split("")).toList();
 

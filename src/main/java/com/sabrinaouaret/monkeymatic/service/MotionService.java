@@ -11,10 +11,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class MotionService {
 
+    public static final String RETURN_REGEX = "\\R+";
+
     public OutputPosition calculateNewPosition(String input) {
         InputValidator.validate(input);
 
-        String[] lines = input.split("\\R+");
+        String[] lines = input.split(RETURN_REGEX);
         Tractor tractor = CommandMapper.mapToTractor(lines[0]);
         Command command = CommandMapper.mapToCommand(lines[1]);
 
